@@ -1,50 +1,45 @@
 #include "main.h"
 /**
- * _printf - Printf function copy
- * Description: This is a modified version of printf
- * @format: String to print
- * Return: Number of characters printed
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-int how_many = 0;
-const char *pf;
-int (*f)();
-char *buffer = buffer_init();
+convert_match m[] = {
+{"%s", printf_string}, {"%c", printf_char},
+{"%%", printf_37},
+{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+{"%S", printf_exclusive_string}, {"%p", printf_pointer}
+};
+
 va_list args;
+int i = 0, j, len = 0;
 
 va_start(args, format);
-if (!buffer)
-return (0);
-if (!format || (format[0] == '%' && format[1] == '\0'))
-{
-free(buffer);
+if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 return (-1);
-}
-for (pf = format; *pf; pf++)
+
+Here:
+while (format[i] != '\0')
 {
-if (*pf == '%')
+j = 13;
+while (j >= 0)
 {
-f = verify_format(pf);
-if (f)
+if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
 {
-how_many += f(args, buffer);
-pf++;
+len += m[j].f(args);
+i = i + 2;
+goto Here;
 }
-else
-{
-_putchar(buffer, *pf);
-how_many++;
+j--;
 }
-}
-else
-{
-_putchar(buffer, *pf);
-how_many++;
-}
+_putchar(format[i]);
+len++;
+i++;
 }
 va_end(args);
-buffer_print(buffer, buffer_pos(buffer));
-free(buffer);
-return (how_many);
+return (len);
 }
