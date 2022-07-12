@@ -6,6 +6,7 @@
  * struct print - structure for printing various types
  * @t: type to print
  * @f: function to print
+ * Description: This file contains every prototypes used in the repository.
  */
 typedef struct print
 {
