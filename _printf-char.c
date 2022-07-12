@@ -3,8 +3,8 @@
 
 
 /**
- * print_c - prints a char
- * @c: char to print
+ * print_c - prints a given character.
+ * @c: character to print.
  *
  * Return: always 1
  */
@@ -17,8 +17,8 @@ return (1);
 }
 
 /**
- * print_s - prints a string
- * @s: string to print
+ * print_s - prints out a string.
+ * @s: string to be print.
  *
  * Return: number of chars printed
  */
@@ -61,7 +61,7 @@ return (count);
 }
 
 /**
- * print_S - prints a string and nonprintable character ascii values
+ * print_S - prints a string and non printable character ascii values
  * @S: string to print
  *
  * Return: number of chars printed
@@ -93,8 +93,8 @@ return (count);
 }
 
 /**
- * print_r - prints astring in reverse
- * @r: string to print
+ * print_r - prints a string in reverse
+ * @r: string to be print printed in reverse.
  *
  * Return: number of chars printed
  */

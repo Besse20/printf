@@ -2,8 +2,8 @@
 #include "main.h"
 /**
  * check_for_specifiers - checks if there is a valid format specifier
- * @format: possible format specifier
- *
+ * @format: possible format specifier of a string.
+ * @va_list: list of variables.
  * Return: pointer to valid function or NULL
  */
 static int (*check_for_specifiers(const char *format))(va_list)
@@ -37,10 +37,10 @@ return (p[i].f);
 }
 
 /**
- * _printf - prints anything
+ * _printf - prints anything on stdout.
  * @format: list of argument types passed to the function
  *
- * Return: number of characters printed
+ * Return: number of characters printed if a function is called.
  */
 int _printf(const char *format, ...)
 {
