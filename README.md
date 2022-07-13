@@ -14,3 +14,7 @@ _printf-hex.c - contains functions that prints an unsigned int in hexidecimal fo
 
 _printf-nums.c - function that copies signed as well as unsigned ints.
 
+test/ main.c - contains main to test the files.
+
+_print-ro13.c - its a function that prints a string in rot13.
+
